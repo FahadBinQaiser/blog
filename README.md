@@ -1,3 +1,4 @@
+```bash
 # Blog
 
 A Blog that consist of an article and comments of the article.
@@ -13,25 +14,24 @@ A Blog that consist of an article and comments of the article.
 ⚪ Rails
 ⚪ SQLite3
 
+```
+
 ### Setup
 
 After cloning the project,
 
-```
-
+```bash
 rails db:migrate
 rails server
-
 ```
 
 ### Database
 
 This project uses SQLite3 Database.
 
-- Authentication
+### Authentication
 
-```
+```bash
 username: dhh
 password: secret
-
 ```
