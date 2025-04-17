@@ -1,24 +1,37 @@
-# README
+# Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Blog that consist of an article and comments of the article.
 
-Things you may want to cover:
+### Ruby version
 
-* Ruby version
+⚪ Ruby 3.3.7 (2025-01-15 revision be31f993d7) [x64-mingw-ucrt]
+⚪ Rails 8.0.2
 
-* System dependencies
+### System dependencies
 
-* Configuration
+⚪ Ruby
+⚪ Rails
+⚪ SQLite3
 
-* Database creation
+### Setup
 
-* Database initialization
+After cloning the project,
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+rails db:migrate
+rails server
 
-* Deployment instructions
+```
 
-* ...
+### Database
+
+This project uses SQLite3 Database.
+
+- Authentication
+
+```
+username: dhh
+password: secret
+
+```
