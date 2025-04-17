@@ -15,9 +15,14 @@ A Blog that consist of an article and comments of the article.
 
 ### Setup
 
-After cloning the project,
+#### Clone this project:
+
+https://github.com/FahadBinQaiser/blog.git
+
+After cloning the project, run the following commands
 
 ```bash
+bundle install
 rails db:migrate
 rails server
 ```
