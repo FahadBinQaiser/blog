@@ -1,20 +1,17 @@
-```bash
 # Blog
 
 A Blog that consist of an article and comments of the article.
 
 ### Ruby version
 
-⚪ Ruby 3.3.7 (2025-01-15 revision be31f993d7) [x64-mingw-ucrt]
+⚪ Ruby 3.3.7 (2025-01-15 revision be31f993d7) [x64-mingw-ucrt]<br>
 ⚪ Rails 8.0.2
 
 ### System dependencies
 
-⚪ Ruby
-⚪ Rails
+⚪ Ruby <br>
+⚪ Rails <br>
 ⚪ SQLite3
-
-```
 
 ### Setup
 
