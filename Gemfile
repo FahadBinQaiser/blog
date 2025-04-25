@@ -63,3 +63,4 @@ group :test do
 end
 
 gem 'devise'
+gem "pundit", "~> 2.5"
