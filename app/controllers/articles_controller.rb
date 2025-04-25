@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   include Pundit
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :authenticate_user!
   def index
     @articles = Article.all
@@ -45,5 +46,9 @@ class ArticlesController < ApplicationController
   
   def article_params
     params.require(:article).permit(:title, :body, :status)
+  end
+  def user_not_authorized
+    flash[:alert] = "You're not authorized to perform this action. You don't own this article."
+    redirect_to(request.referrer || root_path)
   end
 end
