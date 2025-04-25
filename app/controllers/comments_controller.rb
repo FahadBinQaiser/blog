@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   include Pundit
-  
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :authenticate_user!
 
@@ -31,7 +31,7 @@ private
   end
 
   def user_not_authorized
-    flash[:alert] = "You're not authorized to perform this action. You don't own this article."
+    flash[:alert] = "You're not authorized to perform this action. You don't own this comment."
     redirect_to(request.referrer || root_path)
   end
 end
