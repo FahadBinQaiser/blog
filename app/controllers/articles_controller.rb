@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [ :index, :show ]
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  before_action :authenticate_user!
 
   def index
     @articles = Article.all
@@ -14,7 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     if @article.save
       redirect_to @article
@@ -25,11 +28,13 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def update
     @article = Article.find(params[:id])
-
+    authorize @article
+    
     if @article.update(article_params)
       redirect_to @article
     else
@@ -39,8 +44,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
+    authorize @article
 
+    @article.destroy
     redirect_to root_path, status: :see_other
   end
 
@@ -48,5 +54,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body, :status)
+  end
+  def user_not_authorized
+    flash[:alert] = "You're not authorized to perform this action. You don't own this article."
+    redirect_to(request.referrer || root_path)
   end
 end
