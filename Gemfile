@@ -65,5 +65,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "rspec-rails", "~> 7.1", groups: [ :development, :test ]
 gem 'devise'
 gem "pundit", "~> 2.5"
+
