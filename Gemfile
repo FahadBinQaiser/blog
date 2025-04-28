@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Added this gem to support ERB files
+  gem "rubocop-erb", require: false
 end
 
 group :development do
@@ -63,3 +66,6 @@ group :test do
 end
 
 gem "rspec-rails", "~> 7.1", groups: [ :development, :test ]
+gem 'devise'
+gem "pundit", "~> 2.5"
+
