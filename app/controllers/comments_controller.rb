@@ -18,8 +18,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @article = Article.find(params[:article_id])
-    authorize @article
     @comment = @article.comments.find(params[:id])
+    
+    authorize @comment
     @comment.destroy
 
     redirect_to article_path(@article), status: :see_other
