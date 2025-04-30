@@ -31,9 +31,6 @@ rails server
 
 This project uses SQLite3 Database.
 
-### Authentication
+### License
 
-```bash
-username: dhh
-password: secret
-```
+This project is license under the MIT license, see the License file for more information.
