@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe ArticlesController do 
+describe ArticlesController do
   let(:user) { User.create(email: "test@example.com", password: "password") }
   let(:article) { Article.create(title: "Hello Pookie", body: "Pookie is learning!", status: "public", user: user) }
-  
+
 
   it 'works with valid attributes' do
     expect(article).to be_valid

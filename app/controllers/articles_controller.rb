@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :authenticate_user!
-  
+
   def index
     @articles = Article.all
   end
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     authorize @article
-    
+
     if @article.update(article_params)
       redirect_to @article
     else
