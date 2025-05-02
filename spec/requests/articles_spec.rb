@@ -30,7 +30,7 @@ RSpec.describe "Articles", type: :request do
       expect {
         post articles_path, params: { article: { title: "New Pookie", body: "Learning again!", status: "public" } }
       }.to change(Article, :count).by(1)
-      expect(response).to have_http_status(:redirect) 
+      expect(response).to have_http_status(:redirect)
     end
   end
 
@@ -47,5 +47,4 @@ RSpec.describe "Articles", type: :request do
     expect(response).to have_http_status(:see_other)
   end
 end
-
 end
