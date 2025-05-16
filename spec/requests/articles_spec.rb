@@ -1,7 +1,6 @@
 require 'rails_helper'
 require 'devise'
 
-
 RSpec.describe "Articles", type: :request do
   let(:user) { User.create(email: "test@example.com", password: "password") }
   let(:article) { Article.create(title: "Hello Pookie", body: "Pookie is learning!", status: "public", user: user) }
