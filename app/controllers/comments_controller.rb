@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @article = Article.find(params[:article_id])

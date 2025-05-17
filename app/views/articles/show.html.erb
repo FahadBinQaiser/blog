@@ -16,8 +16,10 @@
       </li>
 </ul>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
 <h2>Add a comment:</h2>
-<%= render "comments/form", article: @article %>
+<%= render @article.comments %>
+<% if user_signed_in? %>
+  <%= render "comments/form", article: @article %>
+<% else %>
+  <p>You must <%= link_to "log in", new_user_session_path %> to leave a comment.</p>
+<% end %>
