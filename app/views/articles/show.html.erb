@@ -17,6 +17,7 @@
 </ul>
 
 <h2>Add a comment:</h2>
+<%= render @article.comments %>
 <% if user_signed_in? %>
   <%= render "comments/form", article: @article %>
 <% else %>
