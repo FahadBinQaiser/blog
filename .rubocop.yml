@@ -8,9 +8,16 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.3
 
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
 # Layout/SpaceInsideArrayLiteralBrackets:
 #   Enabled: false

@@ -27,13 +27,23 @@ rails db:migrate
 rails server
 ```
 
+### If this doesn't work,
+
+```bash
+rails db:migrate 
+```
+
+Then use this,
+
+```bash
+rails db:test:prepare
+rails db:migrate
+```
+
 ### Database
 
 This project uses SQLite3 Database.
 
-### Authentication
+### License
 
-```bash
-username: dhh
-password: secret
-```
+This project is license under the MIT license, see the License file for more information.

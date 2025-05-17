@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
-  include Pundit
+  include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   before_action :authenticate_user!, only: [:create, :destroy]
-
 
   def create
     @article = Article.find(params[:article_id])
@@ -18,8 +17,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @article = Article.find(params[:article_id])
-    authorize @article
     @comment = @article.comments.find(params[:id])
+
+    authorize @comment
     @comment.destroy
 
     redirect_to article_path(@article), status: :see_other
