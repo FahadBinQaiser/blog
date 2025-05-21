@@ -68,3 +68,10 @@ end
 gem "rspec-rails", "~> 7.1", groups: [ :development, :test ]
 gem "devise"
 gem "pundit", "~> 2.5"
+
+
+# For deploymentation
+
+group :production do
+  gem "pg", "~> 1.4"
+end
