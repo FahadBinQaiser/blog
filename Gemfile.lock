@@ -396,7 +396,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  pg (~> 1.4)
+  pg
   propshaft
   puma (>= 5.0)
   pundit (~> 2.5)
