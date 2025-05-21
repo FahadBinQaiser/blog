@@ -41,8 +41,6 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
-    RUN apt-get update && apt-get install -y libpq-dev
-
 # Copy application code
 COPY . .
 
