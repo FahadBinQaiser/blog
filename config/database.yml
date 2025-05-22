@@ -1,21 +1,21 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: pookieboii
-  host: localhost
+  adapter: sqlite3
   pool: 5
+  timeout: 5000
 
 development:
   <<: *default
-  database: blog_development
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: blog_test
+  database: db/test.sqlite3
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: blog_production
   username: blog
   password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
+  host: localhost
+  pool: 5
