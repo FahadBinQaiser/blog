@@ -1,15 +1,21 @@
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  timeout: 5000
+  username: postgres
+  password: pookieboii
+  host: localhost
+  port: 5432
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: blog_development
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: blog_test
 
 production:
-  url: <%= ENV['DATABASE_URL'] || "postgresql://user:pass@localhost:5432/dbname" %>
+  <<: *default
+  database: blog_production
+  url: <%= ENV['DATABASE_URL'] %>
