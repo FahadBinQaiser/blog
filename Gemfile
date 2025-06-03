@@ -68,3 +68,5 @@ end
 gem "rspec-rails", "~> 7.1", groups: [ :development, :test ]
 gem "devise"
 gem "pundit", "~> 2.5"
+
+gem "tailwindcss-rails", "~> 4.2"
