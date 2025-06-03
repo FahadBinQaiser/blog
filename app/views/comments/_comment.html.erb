@@ -1,9 +1,9 @@
 <% unless comment.archived? %>
 
 <p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <%= comment.user.email.split('@').first.downcase %>
 </p>
+
 
 <p>
   <strong>Comment:</strong>
