@@ -1,7 +1,8 @@
-<%= form_with model: article, class: "auth-container max-w-5xl mx-auto text-white" do |form| %>
+<%= form_with model: article, class: "space-y-6 max-w-xl mx-auto p-6 bg-black rounded-xl shadow-md" do |form| %>
+
   <div>
-    <%= form.label :title, class: "auth-label text-2xl" %>
-    <%= form.text_field :title, class: "auth-input border border-white" %>
+    <%= form.label :title, class: "block text-white font-semibold mb-2 text-3xl" %>
+    <%= form.text_field :title, class: "w-full p-2 rounded-md bg-gray-900 text-white border border-white" %>
 
     <% article.errors.full_messages_for(:title).each do |message| %>
       <div class="text-red-400 text-sm mt-1"><%= message %></div>
@@ -9,25 +10,29 @@
   </div>
 
   <div>
-    <%= form.label :body, class: "auth-label text-2xl" %>
-    <%= form.text_area :body, rows: 4, class: "auth-input border border-white" %>
+    <%= form.label :body, class: "block text-white font-semibold mb-2 text-3xl" %>
+    <%= form.text_area :body, rows: 4, class: "w-full p-2 rounded-md bg-gray-900 text-white border border-white" %>
 
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div class="text-red-400 text-sm mt-1"><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.label :status, class: "auth-label text-2xl" %>
-    <%= form.select :status, 
-      Visible::VALID_STATUSES, 
-      { selected: @article.status || "public" }, 
-      { class: "auth-input border border-white" } 
-    %>
-  </div>
+ <%= form.label :status, class: "block text-white text-3xl font-semibold mb-2" %>
+  <%= form.select :status, 
+    Visible::VALID_STATUSES, 
+    { selected: @article.status || "public" }, 
+    { class: "w-full p-2 rounded-md bg-gray-900 text-white border border-white" } 
+  %>
+
 
   <div>
-    <%= form.submit "Submit", class: "auth-button shadow-md" %>
+    <%= form.submit "Submit", class: "w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow transition" %>
   </div>
+  <div>
+ 
+
+</div>
+
 
 <% end %>
