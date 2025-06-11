@@ -1,6 +1,6 @@
 <% unless comment.archived? %>
 
-<div class="text-2xl space-y-4 py-4">
+<div class="text-2xl flex flex-col space-y-4 py-4">
   <p class="text-3xl font-bold">
     <%= comment.user.email.split("@").first.downcase %>
   </p>
@@ -9,12 +9,12 @@
   </p>
 </div>
 
-<p>
+<p class="block">
   <%= button_to "Destroy Comment",
     [ comment.article, comment ],
     method: :delete,
     data: { turbo_confirm: "Are you sure?" },
-    class: "w-full cursor-pointer text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-5 rounded-lg shadow transition duration-200" %>
+    class: "article-destructive-edit" %>
 </p>
 
 <% end %>
