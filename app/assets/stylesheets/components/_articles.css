@@ -1,0 +1,104 @@
+.articles-wrapper {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  font-weight: 500;
+}
+
+.articles-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.articles-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ef4444; 
+  letter-spacing: -0.025em;
+}
+
+.articles-subtitle {
+  font-size: 1.125rem;
+}
+
+.articles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+}
+
+.article-item {
+  background-color: #000;
+  border: 1px solid #e5e7eb;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  text-align: center;
+}
+
+.article-link {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+}
+
+.auth-box {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.auth-logged-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.auth-welcome {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.auth-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.auth-button {
+  background-color: #000;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  height: 60px;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.auth-button:hover {
+  background-color: #374151; 
+}
+
+.logout-button {
+  background-color: Black;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+}
+
+.new-article-link {
+  text-align: right;
+}
