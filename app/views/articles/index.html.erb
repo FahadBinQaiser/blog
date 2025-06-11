@@ -26,9 +26,9 @@
               class: "bg-red-500 cursor-pointer hover:bg-red-700 text-white font-medium py-2 px-5 rounded-lg transition duration-200" %>
       </div>
     <% else %>
-      <div class="flex items-center justify-center gap-6">
-        <%= link_to "Login", new_user_session_path, class: "text-blue-600 hover:underline text-base font-medium" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "text-blue-600 hover:underline text-base font-medium" %>
+      <div class="flex items-center justify-center gap-1">
+        <%= link_to "Login", new_user_session_path, class: "bg-black text-white cursor-pointer hover:bg-gray-700 font-medium py-2 px-5 rounded-lg transition duration-200" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "bg-black text-white cursor-pointer hover:bg-gray-700  font-medium py-2 px-5 rounded-lg transition duration-200" %>
       </div>
     <% end %>
   </div>
