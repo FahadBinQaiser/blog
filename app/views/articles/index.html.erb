@@ -1,26 +1,45 @@
-<% if user_signed_in? %>
-  <p>Welcome, <%= current_user.email %>!</p>
- <%= button_to "Logout", destroy_user_session_path, method: :delete, form: { "data-turbo-confirm": "Are you sure you want to logout?" } %>
-  <% else %>
-  <%= link_to "Login", new_user_session_path %><br/><br />
-  <%= link_to "SignUp", new_user_registration_path %>
+<div class="max-w-4xl font-medium mx-auto px-6 py-10 space-y-10">
 
-<% end %>
+  <!-- Header Section -->
+  <div class="text-center space-y-2">
+    <h1 class="text-5xl font-extrabold text-red-500 tracking-tight">Articles</h1>
+    <p class="text-lg text-gray-600">Our blog has <%= Article.public_count %> articles and counting!</p>
+  </div>
 
-
-<h1>Articles</h1>
-Our blog has <%= Article.public_count %> articles and counting!
-
-<ul>
-  <% @articles.each do |article| %>
-  <% unless article.archived? %>
-  
-    <li>
-     <%= link_to article.title, article %>
-    </li>
-    
+  <!-- Articles List -->
+  <ul class="space-y-2">
+    <% @articles.each do |article| %>
+      <% unless article.archived? %>
+        <li class="bg-black border-gray-200 rounded-xl p-5">
+          <%= link_to article.title, article, class: "text-2xl text-white font-semibold hover:underline" %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<%= link_to "New Article", new_article_path %>
+  <!-- Auth Section -->
+  <div class="p-0">
+    <% if user_signed_in? %>
+      <div class="bg-green-50 border border-green-300 rounded-xl p-6 flex items-center justify-between shadow-sm">
+        <p class="text-lg text-green-800 font-semibold">
+          Welcome, <%= current_user.email %>!
+        </p>
+        <%= button_to "Logout", destroy_user_session_path,
+              method: :delete,
+              form: { "data-turbo-confirm": "Are you sure you want to logout?" },
+              class: "bg-red-500 cursor-pointer hover:bg-red-700 text-white font-medium py-2 px-5 rounded-lg transition duration-200" %>
+      </div>
+    <% else %>
+      <div class="flex items-center justify-center gap-6">
+        <%= link_to "Login", new_user_session_path, class: "text-blue-600 hover:underline text-base font-medium" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "text-blue-600 hover:underline text-base font-medium" %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- New Article Button -->
+  <div class="text-right">
+    <%= link_to "➕ New Article", new_article_path,
+          class: "inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-200" %>
+  </div>
+</div>
