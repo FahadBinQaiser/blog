@@ -1,18 +1,15 @@
 <div class="max-w-4xl text-black mx-auto px-6 py-10 space-y-8">
 
-  <!-- Back Home Button -->
   <div>
     <%= link_to "Home", root_path,
       class: "block text-center bg-black text-white hover:bg-gray-800 font-medium py-2 px-5 rounded-lg shadow transition duration-200" %>
   </div>
 
-  <!-- Article Title & Body -->
   <div class="space-y-4 ">
     <h1 class="text-5xl font-bold">Title: <%= @article.title %></h1>
     <p class="text-lg leading-relaxed"><%= @article.body %></p>
   </div>
 
-  <!-- Edit/Delete Links -->
   <ul class="space-y-2">
   <% if user_signed_in? %>
     <li>
@@ -33,7 +30,6 @@
 </ul>
 
 
-  <!-- Comments Section -->
   <div class="space-y-6 pt-6">
     <h2 class="text-2xl font-semibold text-gray-800">Add a comment:</h2>
 
