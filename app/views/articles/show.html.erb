@@ -1,25 +1,49 @@
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
-<h1><%= @article.title %></h1>
+<div class="max-w-4xl font-medium text-black mx-auto px-6 py-10 space-y-8">
 
-<p><%= @article.body %></p>
+  <div>
+    <%= link_to "Home", root_path,
+      class: "article-normal-buttons" %>
+  </div>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  
-  <li>
-    <%= link_to "Delete", article_path(@article),
-    data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          } 
-          %>
-      </li>
+  <div class="space-y-4 ">
+    <h1 class="text-5xl font-bold">Title: <%= @article.title %></h1>
+    <p class="text-lg leading-relaxed"><%= @article.body %></p>
+  </div>
+
+  <ul class="space-y-2">
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Edit", edit_article_path(@article),
+        class: "article-destructive-edit" %>
+    </li>
+    <li>
+      <%= link_to "Delete", article_path(@article),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+        class: "article-destructive-edit" %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Sign in to edit or delete", new_user_session_path,
+        class: "article-normal-buttons" %>
+    </li>
+  <% end %>
 </ul>
 
-<h2>Add a comment:</h2>
-<%= render @article.comments %>
-<% if user_signed_in? %>
-  <%= render "comments/form", article: @article %>
-<% else %>
-  <p>You must <%= link_to "log in", new_user_session_path %> to leave a comment.</p>
-<% end %>
+
+  <div class="space-y-6 pt-6">
+    <h2 class="text-5xl font-bold">Add a comment:</h2>
+
+    <%= render @article.comments %>
+
+    <% if user_signed_in? %>
+      <%= render "comments/form", article: @article %>
+    <% else %>
+      <p>
+        You must
+        <%= link_to "log in", new_user_session_path, class: "text-black hover:underline font-medium" %>
+        to leave a comment.
+      </p>
+    <% end %>
+  </div>
+
+</div>

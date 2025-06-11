@@ -1,22 +1,17 @@
-<%= form_with model: [ article, article.comments.build ] do |form| %>
-  
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: "public" %>
-  </p>
+<%= form_with model: [ article, article.comments.build ], class: "bg-black text-white p-6 rounded-xl space-y-5" do |form| %>
 
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
+  <div>
+    <%= form.label :body, class: "block mb-2 text-2xl text-white font-semibold" %>
+    <%= form.text_area :body, rows: 4, class: "partial-styles" %>
+  </div>
+  <div>
+    <%= form.label :status, class: "block mb-2 text-2xl text-white font-semibold" %>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: "public" }, class: "partial-styles" %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
-  
+
+  <div>
+    <%= form.submit "Post Comment", class: "article-destructive-edit" %>
+  </div>
+
 <% end %>

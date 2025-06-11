@@ -1,31 +1,33 @@
-<%= form_with model: article do |form| %>
-
+<%= form_with model: article, class: "auth-container max-w-5xl mx-auto text-white" do |form| %>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "auth-label text-2xl" %>
+    <%= form.text_field :title, class: "auth-input border border-white" %>
 
     <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
     <% end %>
-
-  </div>
-  
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || "public" %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-   
+    <%= form.label :body, class: "auth-label text-2xl" %>
+    <%= form.text_area :body, rows: 4, class: "auth-input border border-white" %>
+
     <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
     <% end %>
-    
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :status, class: "auth-label text-2xl" %>
+    <%= form.select :status, 
+      Visible::VALID_STATUSES, 
+      { selected: @article.status || "public" }, 
+      { class: "auth-input border border-white" } 
+    %>
   </div>
+
+  <div>
+    <%= form.submit "Submit", class: "auth-button shadow-md" %>
+  </div>
+
 <% end %>

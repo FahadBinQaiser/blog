@@ -1,19 +1,20 @@
 <% unless comment.archived? %>
 
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
+<div class="text-2xl flex flex-col space-y-4 py-4">
+  <p class="text-3xl font-bold">
+    <%= comment.user.email.split("@").first.downcase %>
+  </p>
+  <p>
+    <%= comment.body %>
+  </p>
+</div>
+
+<p class="block">
+  <%= button_to "Destroy Comment",
+    [ comment.article, comment ],
+    method: :delete,
+    data: { turbo_confirm: "Are you sure?" },
+    class: "article-destructive-edit" %>
 </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to "Destroy Comment", [ comment.article, comment ], data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?",
-  }%>
-</p>
 <% end %>
