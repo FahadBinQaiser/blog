@@ -1,31 +1,25 @@
-<%= form_with model: article do |form| %>
+<%= form_with model: article, class: "space-y-6 max-w-xl mx-auto p-6 bg-black rounded-xl shadow-md" do |form| %>
 
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "block text-white font-semibold mb-2 text-3xl" %>
+    <%= form.text_field :title, class: "w-full p-2 rounded-md bg-gray-900 text-white border border-white" %>
 
     <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
     <% end %>
-
-  </div>
-  
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || "public" %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-   
+    <%= form.label :body, class: "block text-white font-semibold mb-2 text-3xl" %>
+    <%= form.text_area :body, rows: 4, class: "w-full p-2 rounded-md bg-gray-900 text-white border border-white" %>
+
     <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
     <% end %>
-    
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save Article", class: "w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow transition" %>
   </div>
+
 <% end %>
