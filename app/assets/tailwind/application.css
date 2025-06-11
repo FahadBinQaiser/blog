@@ -1,3 +1,2 @@
 @import "tailwindcss";
-@import "components/auth_forms.css";
-@import "components/articles.css";
+@import "components/auth_forms";
