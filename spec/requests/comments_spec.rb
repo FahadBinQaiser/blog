@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'devise'
 
 RSpec.describe "Articles", type: :request do
-  let(:user) { User.create!(email: "test@example.com", password: "password") }
+  let(:user) { create(:user) }
 
   before do
     sign_in user
@@ -20,7 +20,7 @@ RSpec.describe "Articles", type: :request do
 
   describe "DELETE #destroy" do
     it "deletes an article" do
-      article = Article.create!(title: "Will delete this later", body: "Deletion on hold", status: "public", user: user)
+      article = create(:article, user: user)
 
       expect {
         delete article_path(article)
