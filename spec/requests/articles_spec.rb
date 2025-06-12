@@ -2,8 +2,8 @@ require 'rails_helper'
 require 'devise'
 
 RSpec.describe "Articles", type: :request do
-  let(:user) { User.create(email: "test@example.com", password: "password") }
-  let(:article) { Article.create(title: "Hello Pookie", body: "Pookie is learning!", status: "public", user: user) }
+  let(:user) { create(:user) }
+  let(:article) { create(:article, user: user) }
 
   before do
     get articles_path
@@ -12,7 +12,6 @@ RSpec.describe "Articles", type: :request do
 
   describe "GET #index" do
     it "returns a success response" do
-      get articles_path
       expect(response).to have_http_status(:success)
     end
   end
@@ -35,8 +34,7 @@ RSpec.describe "Articles", type: :request do
 
   describe "DELETE #destroy" do
   it "deletes an article" do
-    article = Article.create(title: "Hello Pookie", body: "Pookie is learning!", status: "public", user: user)
-
+    article = create(:article, user: user)
     sign_in user
 
     expect {
