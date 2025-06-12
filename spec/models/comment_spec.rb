@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe CommentsController do
-  let(:comment) { Comment.new(body: "Pookie is learning!") }
+  let(:comment) { create(:comment) }
 
   it 'has a body' do
-    expect(comment.body).to eq("Pookie is learning!")
+    expect(comment.body).to be_present
   end
 
   it 'shows the body cant be empty' do
