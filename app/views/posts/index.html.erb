@@ -1,0 +1,28 @@
+<div class="text-center bg-red-600 text-white my-4">
+  <%= link_to "HomePage", root_path, class:" text-3xl font-bold block p-4 rounded" %>
+</div>
+<h1 class="text-5xl font-bold text-center text-black py-10">All Posts</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto pb-10 px-4">
+  <% @posts.each do |post| %>
+    <div class="bg-white rounded-lg shadow p-4 border border-gray-200">
+      <div class="mb-4">
+        <h2 class="text-2xl font-semibold text-black"><%= post.title %></h2>
+      </div>
+
+      <% if post.image.attached? %>
+        <div class="h-48 overflow-hidden rounded-lg mb-4">
+          <%= image_tag post.image, class: "w-full h-full object-cover" %>
+        </div>
+      <% else %>
+        <div class="h-48 mb-4 flex items-center justify-center bg-gray-100 rounded-lg">
+          <span class="text-gray-400 italic">No image uploaded</span>
+        </div>
+      <% end %>
+      
+      <%= link_to "View Post", post_path(post), 
+          class: "flex justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300 font-medium" %>
+    </div>
+  <% end %>
+
+</div>
