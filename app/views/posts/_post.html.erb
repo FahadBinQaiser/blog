@@ -1,0 +1,23 @@
+<%= form_with model: post, class: "auth-container max-w-5xl mx-auto text-white" do |form| %>
+  <div>
+    <%= form.label :title, class: "auth-label text-2xl" %>
+    <%= form.text_field :title, class: "auth-input border border-white" %>
+
+    <% post.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.label :image, "Upload Image", class:"auth-label text-2xl" %>
+    <%= form.file_field :image, class:"auth-input border border-white" %>
+
+    <% post.errors.full_messages_for(:image).each do |message| %>
+      <div class="text-red-400 text-sm mt-1"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit", class: "auth-button shadow-md mt-4" %>
+  </div>
+<% end %>
