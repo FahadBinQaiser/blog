@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :image)
   end
-  
+
   def user_not_authorized
     flash[:alert] = "You're not authorized to perform this action. You don't own this post."
     redirect_to(request.referrer || root_path)
