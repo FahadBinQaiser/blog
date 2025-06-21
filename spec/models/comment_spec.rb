@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CommentsController do
+RSpec.describe Comment, type: :model do
   let(:comment) { create(:comment) }
 
   it 'has a body' do
