@@ -17,4 +17,10 @@ FactoryBot.define do
     association :article
     association :user
   end
+  FactoryBot.define do
+  factory :post do
+    title { "Test Post Title" }
+    association :user
+  end
+end
 end
