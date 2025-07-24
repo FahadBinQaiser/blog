@@ -10,6 +10,7 @@
         <h2 class="font-bold text-black"><%= post.user.email %></h2>
         <h2 class="font-semibold text-black"><%= post.title %></h2>
       </div>
+        <%= post.created_at.strftime("%b %d, %Y") %>
 
       <% if post.image.attached? %>
         <div class="h-48 overflow-hidden rounded-lg mb-4">
