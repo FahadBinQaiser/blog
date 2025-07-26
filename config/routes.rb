@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "articles#index"
+  resource :likes, only: [ :create, :destroy ]
   resource :dark_mode, only: [ :create ], controller: "dark_mode"
   resources :articles do
     resources :comments
