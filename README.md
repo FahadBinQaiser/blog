@@ -30,7 +30,7 @@ rails server
 ### If this doesn't work,
 
 ```bash
-rails db:migrate 
+rails db:migrate
 ```
 
 Then use this,

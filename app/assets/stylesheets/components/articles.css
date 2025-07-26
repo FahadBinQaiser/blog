@@ -13,7 +13,7 @@
 .articles-title {
   font-size: 3rem;
   font-weight: 800;
-  color: #ef4444; 
+  color: #ef4444;
   letter-spacing: -0.025em;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .auth-button:hover {
-  background-color: #374151; 
+  background-color: #374151;
 }
 
 .logout-button {
