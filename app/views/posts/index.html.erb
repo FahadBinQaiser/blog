@@ -10,8 +10,16 @@
         <h2 class="font-bold text-black"><%= post.user.email %></h2>
         <h2 class="font-semibold text-black"><%= post.title %></h2>
       </div>
-        <%= post.created_at.strftime("%b %d, %Y") %>
+        <%= post.created_at.strftime("%b %d, %Y") %><br/>
+        <%= post.likes.count %> likes
 
+        <% like = current_user.likes.find_by(post: post) %>
+
+        <% if like.nil? %>
+          <%= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } } %>
+        <% else %>
+          <%= button_to "Unlike", like_path(like), method: :delete %>
+        <% end %>
       <% if post.image.attached? %>
         <div class="h-48 overflow-hidden rounded-lg mb-4">
           <%= image_tag post.image, class: "w-full h-full object-cover" %>
