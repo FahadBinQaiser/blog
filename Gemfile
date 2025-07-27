@@ -76,3 +76,6 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "faker"
 end
+
+gem "listen", "~> 3.7"
+gem "wdm", ">= 0.1.0", platforms: [ :mswin, :mingw ]
