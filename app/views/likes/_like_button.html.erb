@@ -1,0 +1,10 @@
+<div class="py-2">
+  <% like = current_user.likes.find_by(post: post) %>
+<%= post.likes.count %> ❤
+<% if like.nil? %>
+  <%= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } }, class: "bg-blue-500 text-white px-3 py-1 rounded" %>
+<% else %>
+  <%= button_to "Unlike", like_path(like), method: :delete, class: "bg-red-500 text-white px-3 py-1 rounded" %>
+<% end %>
+
+</div>
