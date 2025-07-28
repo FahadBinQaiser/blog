@@ -1,5 +1,5 @@
 <div class="text-center bg-red-600 text-white my-4">
-  <%= link_to "HomePage", root_path, class: " text-3xl font-bold block p-4 rounded" %>
+  <%= link_to "HomePage", root_path, class: "text-3xl font-bold block p-4 rounded" %>
 </div>
 <h1 class="text-5xl font-bold text-center text-black py-10">All Posts</h1>
 
@@ -22,10 +22,11 @@
        <%= button_to "Unlike", like_path(like), method: :delete %>
     <% end %>
  <% end %>
- 
-    <div class="<% if user_signed_in? %> cursor-pointer <% else %> likeHeading inline-block text-xl text-white rounded-xl p-4 bg-red-700 my-2<% end %>">
+
+    <div class="<% if user_signed_in? %> cursor-pointer <% else %> likeHeading inline-block text-xl text-white rounded-xl px-8 py-2 bg-red-700 my-2<% end %>">
       <%= post.likes.count %> likes
     </div>
+
       <% if post.image.attached? %>
         <div class="h-48 overflow-hidden rounded-lg mb-4">
           <%= image_tag post.image, class: "w-full h-full object-cover" %>
