@@ -1,4 +1,4 @@
-<div class="toggling-dark-mode absolute top-4 right-4">
+<div class="absolute top-4 right-4">
    <%= link_to dark_mode_path, data: { turbo_method: :post } do %>
   <% if current_user&.dark_mode? %>
      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">

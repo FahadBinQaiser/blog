@@ -25,7 +25,7 @@
 
   </head>
 
-  <body class="<%= "dark" if current_user&.dark_mode? %>">
+  <body class="toggling-dark-mode <%= "dark" if current_user&.dark_mode? %>">
     <% flash.each do |key, message| %>
   <div class="flash <%= key %>"><%= message %></div>
   <% end %>
