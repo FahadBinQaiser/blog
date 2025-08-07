@@ -6,8 +6,8 @@
       <%= comment.user.email.split("@").first.capitalize %>
     </p>
     <div class="relative">
-      <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="p-2 rounded-full hover:bg-gray-200 focus:outline-none">
-        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+      <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="p-2 rounded-full dark:hover:bg-white text-white dark:hover:text-black focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
       </button>
       <div class="absolute right-0 mt-2 bg-white border rounded shadow-lg hidden z-10">
         <%= button_to "Destroy Comment",
