@@ -1,23 +1,17 @@
-<div class="text-center bg-red-600 text-white my-4">
-  <%= link_to "HomePage", root_path, class: "text-3xl font-bold block p-4 rounded" %>
+<div class="dark:bg-black dark:text-white bg-white text-black">
+  <div class="max-w-5xl relative mx-auto">
+
+<div class="p-4 absolute top-0 left-0">
+  
+  <%= link_to "HomePage", root_path, class: "text-3xl font-bold bg-red-600 text-white p-4 rounded" %>
 </div>
-<h1 class="text-5xl font-bold text-center text-black py-10">All Posts</h1>
+<h1 class="text-5xl sm:text-6xl font-bold text-center py-10">Posts</h1>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto pb-10 px-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-1 max-w-5xl mx-auto pb-10 px-4">
   <% @posts.each do |post| %>
-    <div class="bg-white rounded-lg shadow p-4 border border-gray-200">
-      <div class="mb-4 text-xl">
-        <h2 class="font-bold text-black"><%= post.user.email %></h2>
-        <h2 class="font-semibold text-black"><%= post.title %></h2>
-      </div>
-        <%= post.created_at.strftime("%b %d, %Y") %><br/>
-
-    <% if user_signed_in? %>
-      <%= render "likes/like_button", post: post %>
-    <% end %> 
-
-      <% if post.image.attached? %>
-        <div class="h-48 overflow-hidden rounded-lg mb-4">
+    <div class="bg-black text-white rounded-lg shadow p-4 border border-gray-600">
+         <% if post.image.attached? %>
+        <div class="w-full h-[400px] shadow-white shadow-sm overflow-hidden rounded-lg mb-4">
           <%= image_tag post.image, class: "w-full h-full object-cover" %>
         </div>
       <% else %>
@@ -25,10 +19,25 @@
           <span class="text-gray-400 italic">No image uploaded</span>
         </div>
       <% end %>
-      
+      <div class="mb-4 text-xl">
+        <h2 class="font-bold "><%= post.user.email %></h2>
+        <h2 class="font-semibold"><%= post.title %></h2>
+      </div>
+        <%= post.created_at.strftime("%b %d, %Y") %><br/>
+
+      <div>
+        <% if user_signed_in? %>
+      <%= post.likes.count %> ❤
+      <%= render "likes/like_button", post: post %>
+
+    <% end %> 
+    
+      </div>  
       <%= link_to "View Post", post_path(post), 
-          class: "flex justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300 font-medium" %>
+          class: "flex justify-center bg-white text-black px-4 py-2 rounded hover:bg-gray-800 hover:text-white transition-colors duration-300 font-medium" %>
     </div>
   <% end %>
 
+</div>
+</div>
 </div>
