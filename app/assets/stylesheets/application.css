@@ -12,3 +12,13 @@
 .space-grotesk {
   font-family: "Space Grotesk", sans-serif;
 }
+.button {
+  padding: 1rem 5rem;
+  text-align: center;
+  width: 100%;
+  border-radius: 0.375rem;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
