@@ -1,14 +1,15 @@
-<div class="max-w-5xl relative mx-auto">
+<div class="dark:bg-black dark:text-white bg-white text-black">
+  <div class="max-w-5xl relative mx-auto">
 
 <div class="p-4 absolute top-0 left-0">
   
   <%= link_to "HomePage", root_path, class: "text-3xl font-bold bg-red-600 text-white p-4 rounded" %>
 </div>
-<h1 class="text-5xl sm:text-6xl font-bold text-center text-black py-10">Posts</h1>
+<h1 class="text-5xl sm:text-6xl font-bold text-center py-10">Posts</h1>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-1 max-w-5xl mx-auto pb-10 px-4">
   <% @posts.each do |post| %>
-    <div class="bg-black text-white rounded-lg shadow p-4 border border-gray-200">
+    <div class="bg-black text-white rounded-lg shadow p-4 border border-gray-800">
          <% if post.image.attached? %>
         <div class="w-full h-[400px] shadow-white shadow-sm overflow-hidden rounded-lg mb-4">
           <%= image_tag post.image, class: "w-full h-full object-cover" %>
@@ -37,5 +38,6 @@
     </div>
   <% end %>
 
+</div>
 </div>
 </div>
