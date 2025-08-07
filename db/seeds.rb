@@ -7,3 +7,25 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# db/seeds.rb
+
+# Create a dummy user
+user = FactoryBot.create(:user)
+
+# Create dummy posts for that user
+5.times do
+  FactoryBot.create(:post, user: user)
+end
+
+# Create dummy articles for that user
+3.times do
+  FactoryBot.create(:article, user: user)
+end
+
+# Create dummy comments (attached to existing articles and user)
+Article.all.each do |article|
+  2.times do
+    FactoryBot.create(:comment, article: article, user: user)
+  end
+end
