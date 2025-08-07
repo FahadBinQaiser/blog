@@ -6,17 +6,17 @@
       class: "inline-block text-xl font-semibold text-black dark:text-white" %>
   </div>
 
-  <article class="bg-white dark:bg-zinc-900 shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
+  <article class="bg-white dark:bg-white dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
       <h2 class="font-bold text-3xl mb-4">
         <%= current_user.email.split("@").first.capitalize %>
       </h2>
     <header class="py-4">
-      <h1 class="text-2xl font-bold  text-zinc-900 dark:text-white">
+      <h1 class="text-2xl font-bold  text-zinc-900">
         <%= @article.title %>
       </h1>
 
     <section>
-      <p class="text-xl leading-relaxed text-zinc-700 dark:text-zinc-300">
+      <p class="text-xl leading-relaxed text-zinc-700 ">
         <%= @article.body %>
       </p>
     </section>
