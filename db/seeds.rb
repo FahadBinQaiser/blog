@@ -8,18 +8,17 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user = FactoryBot.create(:user)
+user = User.find_or_create_by!(email: 'test@example.com') do |u|
+  u.password = 'password'
+end
 
 5.times do
-  FactoryBot.create(:post, user: user)
+  Post.create!(title: 'Posting for blog', user: user)
 end
 
 3.times do
-  FactoryBot.create(:article, user: user)
-end
-
-Article.all.each do |article|
+  article = Article.create!(title: 'Article seeding', body: 'Working on seeding an article', user: user)
   2.times do
-    FactoryBot.create(:comment, article: article, user: user)
+    Comment.create!(body: 'Nice article!', article: article, user: user)
   end
 end
