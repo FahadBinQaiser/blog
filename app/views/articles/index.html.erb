@@ -1,63 +1,67 @@
-<div class="absolute top-4 right-4">
-   <%= link_to dark_mode_path, data: { turbo_method: :post } do %>
-  <% if current_user&.dark_mode? %>
-     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-</svg>
+<nav class="w-full bg-white dark:bg-black shadow-md">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    
+    <div class="text-xl font-bold dark:text-white">
+      <%= link_to "Articles", root_path %>
+    </div>
 
-  <% else %>
- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-</svg>
+    <div class="flex items-center gap-4">
 
+      <% if user_signed_in? %>
+        <span class="text-sm hidden sm:block dark:text-white">Welcome, <%= current_user.email %></span>
+        <%= button_to "Logout", destroy_user_session_path,
+              method: :delete,
+              form: { "data-turbo-confirm": "Are you sure you want to logout?" },
+              class: "text-sm px-3 py-1 bg-gray-200 dark:bg-gray-700 dark:text-white rounded" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "text-sm text-gray-700 dark:text-white hover:underline" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-gray-700 dark:text-white hover:underline" %>
+      <% end %>
 
-    <% end %>
-  <% end %>
-</div>
+      <%= link_to dark_mode_path, data: { turbo_method: :post } do %>
+        <% if current_user&.dark_mode? %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+          </svg>
+        <% else %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+          </svg>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
 <% dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %>
 
 <div class="articles_theme dark:text-white dark:bg-black <%= dark_height_class %>">
-  <div class="articles-wrapper">
+  <div class="max-w-5xl mx-auto px-4 py-6">
     <div class="articles-header">
       <h1 class="articles-title">Articles</h1>
       <p class="articles-subtitle">
         Our blog has <%= Article.public_count %> articles and counting!
-    </p>
-  </div>
+      </p>
+    </div>
 
-  <ul class="articles-list">
-    <% @articles.each do |article| %>
-      <% unless article.archived? %>
-        <li class="article-item">
-          <%= link_to article.title, article, class: "article-link" %>
-        </li>
+    <ul class="articles-list">
+      <% @articles.each do |article| %>
+        <% unless article.archived? %>
+          <li class="article-item">
+            <%= link_to article.title, article, class: "article-link" %>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
 
-  <div class="auth-box">
-    <% if user_signed_in? %>
-      <div class="auth-logged-in">
-        <p class="auth-welcome">
-          Welcome, <%= current_user.email %>!
-        </p>
-        <%= button_to "Logout", destroy_user_session_path,
-              method: :delete,
-              form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-              class: "auth-button logout-button" %>
-      </div>
-    <% else %>
-      <div class="auth-actions">
-        <%= link_to "Login", new_user_session_path, class: "auth-button" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "auth-button" %>
-      </div>
-    <% end %>
+    <div class="flex justify-center w-full">
+      <div class="mt-6">
+      <%= link_to "New Article", new_article_path, class: "auth-button" %>
+      <%= link_to "New Post", new_post_path, class: "auth-button" %>
+      <%= link_to "Posts", posts_path, class: "auth-button" %>
+    </div>
+    </div>
   </div>
-
-  <div class="new-article-link">
-    <%= link_to "New Article", new_article_path, class: "auth-button" %>
-    <%= link_to "New Post", new_post_path, class: "auth-button" %>
-    <%= link_to "Posts", posts_path, class: "auth-button" %>
-  </div>
-</div>
 </div>
