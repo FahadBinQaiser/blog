@@ -35,9 +35,9 @@
   </div>
 </nav>
 
-<% dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %>
+ <%# dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %> 
 
-<div class="articles_theme dark:text-white dark:bg-black <%= dark_height_class %>">
+<div class="dark:text-white dark:bg-black h-screen">
   <div class="max-w-5xl mx-auto px-4 py-6">
     <div class="articles-header">
       <h1 class="articles-title">Articles</h1>
@@ -46,11 +46,11 @@
       </p>
     </div>
 
-    <ul class="articles-list">
+    <ul class="flex justify-center flex-row gap-2">
       <% @articles.each do |article| %>
         <% unless article.archived? %>
-          <li class="article-item">
-            <%= link_to article.title, article, class: "article-link" %>
+          <li class="px-10 py-4 block bg-black text-white dark:bg-white dark:text-black rounded-xl">
+            <%= link_to article.title, article, class: "block" %>
           </li>
         <% end %>
       <% end %>
