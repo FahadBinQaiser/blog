@@ -13,12 +13,18 @@ user = User.find_or_create_by!(email: 'test@example.com') do |u|
 end
 
 5.times do
-  Post.create!(title: 'Posting for blog', user: user)
+  post = Post.create!(title: 'Posting for blog', user: user)
+
+  post.image.attach(
+    io: File.open(Rails.root.join('spec/fixtures/test-image.jpg')),
+    filename: "test-image.jpg",
+    content_type: "image/jpeg"
+  )
 end
 
 3.times do
-  article = Article.create!(title: 'Article seeding', body: 'Working on seeding an article', user: user)
+  article = Article.create!(title: 'Article seeding', body: 'Working on seeding an article', status: 'public', user: user)
   2.times do
-    Comment.create!(body: 'Nice article!', article: article, user: user)
+    Comment.create!(body: 'Nice article!', status: 'public', article: article, user: user)
   end
 end
