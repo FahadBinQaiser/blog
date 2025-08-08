@@ -48,14 +48,17 @@
     </div>
 
     <ul class="flex justify-center flex-row gap-2">
-      <% @articles.each do |article| %>
-        <% unless article.archived? %>
-          <li class="px-10 py-4 block bg-black text-white dark:bg-white dark:text-black rounded-xl">
-            <%= link_to article.title, article, class: "block" %>
-          </li>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article, class: "px-10 py-4 block bg-black text-white dark:bg-white dark:text-black rounded-xl" do %>
+          <%= article.title %>
         <% end %>
-      <% end %>
-    </ul>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
 
     <div class="flex justify-center w-full">
       <div class="mt-6">
