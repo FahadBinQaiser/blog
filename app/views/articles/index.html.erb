@@ -14,14 +14,14 @@
     <% end %>
   <% end %>
 </div>
+<% dark_height_class = @articles.count >= 3 ? 'dark:h-full' : 'dark:h-screen' %>
 
-
-<div class="articles_theme dark:text-white dark:bg-black dark:h-full">
-<div class="articles-wrapper">
-  <div class="articles-header">
-    <h1 class="articles-title">Articles</h1>
-    <p class="articles-subtitle">
-      Our blog has <%= Article.public_count %> articles and counting!
+<div class="articles_theme dark:text-white dark:bg-black <%= dark_height_class %>">
+  <div class="articles-wrapper">
+    <div class="articles-header">
+      <h1 class="articles-title">Articles</h1>
+      <p class="articles-subtitle">
+        Our blog has <%= Article.public_count %> articles and counting!
     </p>
   </div>
 

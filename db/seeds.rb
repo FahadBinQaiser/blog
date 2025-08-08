@@ -8,24 +8,23 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# db/seeds.rb
+user = User.find_or_create_by!(email: 'test@example.com') do |u|
+  u.password = 'password'
+end
 
-# Create a dummy user
-user = FactoryBot.create(:user)
-
-# Create dummy posts for that user
 5.times do
-  FactoryBot.create(:post, user: user)
+  post = Post.create!(title: 'Posting for blog', user: user)
+
+  post.image.attach(
+    io: File.open(Rails.root.join('spec/fixtures/test-image.jpg')),
+    filename: "test-image.jpg",
+    content_type: "image/jpeg"
+  )
 end
 
-# Create dummy articles for that user
 3.times do
-  FactoryBot.create(:article, user: user)
-end
-
-# Create dummy comments (attached to existing articles and user)
-Article.all.each do |article|
+  article = Article.create!(title: 'Article seeding', body: 'Working on seeding an article', status: 'public', user: user)
   2.times do
-    FactoryBot.create(:comment, article: article, user: user)
+    Comment.create!(body: 'Nice article!', status: 'public', article: article, user: user)
   end
 end
