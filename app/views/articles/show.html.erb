@@ -29,7 +29,7 @@
     </section>
 
     <% if user_signed_in? %>
-      <footer class="flex gap-4 pt-4">
+      <footer class="inline-flex flex-row gap-2 pt-4">
         <%= link_to "Edit", edit_article_path(@article),
           class: "button hover:bg-gray-800 hover:text-white bg-black" %>
 
