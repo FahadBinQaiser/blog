@@ -7,7 +7,7 @@
   </div>
 
   <article class="bg-black flex flex-col justify-between text-white dark:bg-white h-full dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
-      <h2 class="font-bold mb-4 bg-gray-900 text-lg rounded-xl w-60 text-center px-8 py-2 text-white">
+      <h2 class="font-bold mb-4 bg-white text-black dark:text-white dark:bg-gray-900 text-lg rounded-xl w-60 text-center px-8 py-2">
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
@@ -16,9 +16,9 @@
   </h1>
 </header>
   <div class="information pt-6 flex flex-row items-center space-x-8">
-        <p class="text-lg text-gray-800">
+        <p class="text-lg text-white dark:text-black">
           • By <%= @article.user.email.split("@").first.capitalize %></p>
-        <p class="text-lg text-gray-800">
+        <p class="text-lg text-white dark:text-black">
           • <%= @article.created_at.strftime("%b %d, %Y") %>
         </p>
   </div>
