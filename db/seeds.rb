@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user = User.find_or_create_by!(email: 'testinggmail@example.com') do |u|
+user = User.find_or_create_by!(email: 'JohnDoe@example.com') do |u|
   u.password = 'password'
 end
 
@@ -22,9 +22,14 @@ end
   )
 end
 
+description = "This is where the article content would go. The modern web development landscape is rapidly evolving with new frameworks, tools, and methodologies emerging constantly.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+
+"
 3.times do
-  article = Article.create!(title: 'Article seeding', body: 'Working on seeding an article', status: 'public', user: user)
+  article = Article.create!(title: 'The Future of Web Development', body: description, status: 'public', user: user)
   2.times do
-    Comment.create!(body: 'Commenting random thing', status: 'public', article: article, user: user)
+    Comment.create!(body: 'Will nail ROR in the next couple of months :) ', status: 'public', article: article, user: user)
   end
 end
