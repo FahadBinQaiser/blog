@@ -13,7 +13,7 @@
         <%= button_to "Logout", destroy_user_session_path,
               method: :delete,
               form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-              class: "text-sm px-3 py-1 bg-gray-200 dark:bg-red-500 dark:text-white rounded" %>
+              class: "text-sm cursor-pointer px-3 py-1 bg-gray-200 dark:bg-red-500 dark:text-white rounded" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "text-sm text-gray-700 dark:text-white hover:underline" %>
         <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-gray-700 dark:text-white hover:underline" %>
