@@ -2,16 +2,16 @@
 
   <div>
     <%= form.label :body, class: "block mb-2 text-2xl font-semibold" %>
-    <%= form.text_area :body, rows: 4, class: "partial-styles" %>
+    <%= form.text_area :body, rows: 4, class: "border p-2 rounded-md h-40 w-full" %>
   </div>
   <div>
     <%= form.label :status, class: "block mb-2 text-2xl font-semibold" %>
-    <%= form.select :status, Visible::VALID_STATUSES, { selected: "public" }, class: "partial-styles" %>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: "public" }, class: "border rounded-md px-4 py-2" %>
   </div>
 
 
-  <div>
-    <%= form.submit "Post Comment", class: "article-destructive-edit" %>
+  <div class="flex justify-end w-full">
+    <%= form.submit "Post Comment", class: "button bg-white text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
   </div>
 
 <% end %>

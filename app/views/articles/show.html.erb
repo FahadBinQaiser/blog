@@ -1,46 +1,52 @@
 <div class="dark:bg-black dark:text-white">
-<div class="max-w-5xl mx-auto px-6 py-16 text-gray-800 dark:text-gray-100">
+<div class="max-w-6xl mx-auto px-6 py-16 text-gray-800 dark:text-gray-100">
 
   <div class="mb-8">
-    <%= link_to "Back to Home →", root_path,
-      class: "inline-block text-xl font-semibold text-black dark:text-white" %>
+    <%= link_to "Back to Home", root_path,
+      class: "inline-block bg-black text-xl font-semibold text-white dark:text-black dark:bg-white p-4 rounded-xl" %>
   </div>
 
-  <article class="bg-white dark:bg-white dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
-      <h2 class="font-bold text-3xl mb-4">
+  <article class="bg-black flex flex-col justify-between text-white dark:bg-white h-full dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
+      <h2 class="font-bold mb-4 bg-white text-black dark:text-white dark:bg-gray-900 text-lg rounded-xl w-60 text-center px-8 py-2">
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
-    <header class="py-4">
-      <h1 class="text-2xl font-bold  text-zinc-900">
-        <%= @article.title %>
-      </h1>
-
+    <header>
+  <h1 class="text-6xl text-balance sm:text-7xl bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent font-sans font-bold">
+    <%= truncate(@article.title, length: 50) %>
+  </h1>
+</header>
+  <div class="information pt-6 flex flex-row items-center space-x-8">
+        <p class="text-lg text-white dark:text-black">
+          • By <%= @article.user.email.split("@").first.capitalize %></p>
+        <p class="text-lg text-white dark:text-black">
+          • <%= @article.created_at.strftime("%b %d, %Y") %>
+        </p>
+  </div>
     <section>
-      <p class="text-xl leading-relaxed text-zinc-700 ">
+      <p class="text-lg whitespace-pre-line leading-relaxed">
         <%= @article.body %>
       </p>
     </section>
-    </header>
 
     <% if user_signed_in? %>
-      <footer class="flex gap-4 pt-4">
+      <footer class="inline-flex sm:p-0 flex-row justify-center sm:justify-start gap-2 pt-4">
         <%= link_to "Edit", edit_article_path(@article),
-          class: "button hover:bg-gray-800 hover:text-white bg-black" %>
+          class: "button bg-white text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
 
         <%= link_to "Delete", article_path(@article),
           data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-          class: "button hover:bg-gray-800 hover:text-white bg-black" %>
+          class: "button bg-white text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
       </footer>
     <% else %>
       <div class="pt-4">
         <%= link_to "Sign in to edit or delete",
           new_user_session_path,
-          class: "button hover:bg-gray-800 hover:text-white bg-black" %>
+          class: "button hover:bg-gray-800 hover:text-white bg-white text-black" %>
       </div>
     <% end %>
   </article>
 
-  <section class="mt-12 space-y-8">
+  <section class="mt-12 space-y-4">
     <h2 class="text-3xl sm:text-4xl font-black">Comments</h2>
 
     <div class="space-y-6">
@@ -55,7 +61,7 @@
       <p class="text-zinc-600 dark:text-zinc-300">
         You must
         <%= link_to "log in", new_user_session_path,
-          class: "text-blue-600 hover:underline font-medium" %>
+          class: "text-black font-bold underline" %>
         to leave a comment.
       </p>
     <% end %>
