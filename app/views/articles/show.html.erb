@@ -6,16 +6,16 @@
       class: "inline-block text-xl font-semibold text-black dark:text-white" %>
   </div>
 
-  <article class="bg-black flex flex-col justify-between text-white dark:bg-white h-screen dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
+  <article class="bg-black flex flex-col justify-between text-white dark:bg-white h-full dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
       <h2 class="font-bold mb-4 bg-gray-900 text-lg rounded-xl w-60 text-center px-8 py-2 text-white">
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
-  <h1 class="text-5xl sm:text-7xl bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent font-sans font-bold">
+  <h1 class="text-6xl text-balance sm:text-7xl bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent font-sans font-bold">
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
-  <div class="information flex flex-row items-center space-x-8">
+  <div class="information pt-6 flex flex-row items-center space-x-8">
         <p class="text-lg text-gray-800">
           • By <%= @article.user.email.split("@").first.capitalize %></p>
         <p class="text-lg text-gray-800">
