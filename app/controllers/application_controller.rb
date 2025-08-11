@@ -4,4 +4,13 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     root_path  # 👈 redirects to homepage after login
   end
+   def dark_mode?
+    if user_signed_in?
+      current_user.dark_mode?
+    else
+      cookies[:dark_mode] == "true"
+    end
+   end
+
+  helper_method :dark_mode?
 end
