@@ -25,7 +25,7 @@
 
   </head>
 
-  <body class="toggling-dark-mode space-grotesk <%= "dark" if current_user&.dark_mode? %>">
+  <body class="toggling-dark-mode space-grotesk <%= "dark" if dark_mode? %>">
     <% flash.each do |key, message| %>
   <div class="flash <%= key %>"><%= message %></div>
   <% end %>
