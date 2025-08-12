@@ -7,7 +7,7 @@
   <% end %>
   </div>
 </div>
-<div class="h-screen dark:bg-black bg-white">
+<div class="h-[90vh] dark:bg-black bg-white">
   <%= render 'shared/navbar' %>
  <%# dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %> 
 
@@ -19,22 +19,8 @@
         Our blog has <%= Article.public_count %> articles and counting!
       </p>
     </div>
-
-    <ul class="flex justify-center flex-row gap-2">
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-        <%= link_to article, class: "px-10 py-4 block bg-black text-white dark:bg-white dark:text-black rounded-xl" do %>
-          <%= article.title %>
-        <% end %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-
-
     <div class="flex justify-center w-full">
-      <div class="mt-6">
+      <div>
       <%= link_to "New Article", new_article_path, class: "auth-button" %>
       <%= link_to "New Post", new_post_path, class: "auth-button" %>
       <%= link_to "Posts", posts_path, class: "auth-button" %>
@@ -42,3 +28,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'shared/articles', articles: @articles %>
