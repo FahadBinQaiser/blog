@@ -1,4 +1,13 @@
-<div class="h-screen dark:bg-black bg-white py-6">
+<div class="bg-black text-white border-b dark:border-b-0 mb-1 dark:mb-0">
+  <div class="max-w-4xl text-center py-2 mx-auto">
+    <% if user_signed_in? %>
+  <span class="text-lg hidden sm:block dark:text-black">Welcome, <%= current_user.email %></span>
+  <% else %>
+  <span class="text-lg hidden sm:block dark:text-white">Welcome, Guest</span>
+  <% end %>
+  </div>
+</div>
+<div class="h-screen dark:bg-black bg-white">
   <nav class="mx-auto max-w-4xl bg-black dark:bg-white text-white dark:text-black rounded-xl shadow-md dark:border-b dark:border-black">
   <div class="max-w-5xl mx-auto px-7 py-3 flex items-center justify-between">
     
@@ -13,11 +22,10 @@
     <div class="flex items-center gap-4">
 
       <% if user_signed_in? %>
-        <span class="text-sm hidden sm:block dark:text-white">Welcome, <%= current_user.email %></span>
         <%= button_to "Logout", destroy_user_session_path,
               method: :delete,
               form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-              class: "text-sm cursor-pointer px-3 py-1 bg-gray-200 dark:bg-red-500 dark:text-white rounded" %>
+              class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-black dark:text-white rounded" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "text-sm text-white dark:text-black hover:underline" %>
         <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-white dark:text-black hover:underline" %>
@@ -39,29 +47,18 @@
     </div>
   </div>
 </nav>
-
  <%# dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %> 
 
 <div class="dark:text-white pt-0 sm:pt-20  dark:bg-black h-full">
   <div class="max-w-5xl mx-auto px-4 py-6">
     <div class="articles-header">
-      <h1 class="articles-title">Articles</h1>
-      <p class="articles-subtitle">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl text-balance font-bold">Analyze Articles and Blog Posts given by BlogSpace</h1>
+      <p class="articles-subtitle pt-3">
         Our blog has <%= Article.public_count %> articles and counting!
       </p>
     </div>
 
-    <ul class="flex justify-center flex-row gap-2">
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-        <%= link_to article, class: "px-10 py-4 block bg-black text-white dark:bg-white dark:text-black rounded-xl" do %>
-          <%= article.title %>
-        <% end %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+    
 
 
     <div class="flex justify-center w-full">
