@@ -24,6 +24,7 @@ body {
 }
 .primary_button {
   background-color: lime;
+  font-size: 1.2rem;
   color: black;
   font-weight: bold;
   padding: 10px 30px;
