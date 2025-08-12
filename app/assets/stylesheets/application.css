@@ -22,3 +22,10 @@ body {
   font-weight: 600;
   transition: background-color 0.2s ease;
 }
+.primary_button {
+  background-color: lime;
+  color: black;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
