@@ -5,12 +5,12 @@
     <%= render "shared/navbar" %>
   </div>
 
-  <article class="bg-black flex flex-col justify-between text-white dark:bg-white h-full dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
+  <article class="bg-black flex flex-col justify-between text-white dark:bg-lime-400 h-full dark:text-black shadow-lg rounded-xl p-8 border border-gray-200 dark:border-zinc-700">
       <h2 class="font-bold mb-4 bg-white text-black dark:text-white dark:bg-gray-900 text-lg rounded-xl w-60 text-center px-8 py-2">
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
-  <h1 class="text-6xl text-balance sm:text-7xl bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent font-sans font-bold">
+  <h1 class="text-6xl text-balance sm:text-7xl text-black font-sans font-bold">
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
@@ -40,7 +40,7 @@
       <div class="pt-4">
         <%= link_to "Sign in to edit or delete",
           new_user_session_path,
-          class: "button hover:bg-gray-800 hover:text-white bg-white text-black" %>
+          class: "button hover:bg-black border-2 hover:text-white bg-white text-black" %>
       </div>
     <% end %>
   </article>
