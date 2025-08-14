@@ -10,7 +10,7 @@
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
-  <h1 class="text-6xl text-balance sm:text-7xl text-white dark:text-black font-sans font-bold">
+  <h1 class="text-6xl text-balance sm:text-7xl text-lime-400 dark:text-black font-sans font-bold">
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
@@ -30,11 +30,11 @@
     <% if user_signed_in? %>
       <footer class="inline-flex sm:p-0 flex-row justify-center sm:justify-start gap-2 pt-4">
         <%= link_to "Edit", edit_article_path(@article),
-          class: "button bg-white text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
+          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
 
         <%= link_to "Delete", article_path(@article),
           data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-          class: "button bg-white text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
+          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
       </footer>
     <% else %>
       <div class="pt-4">
