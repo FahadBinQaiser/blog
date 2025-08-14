@@ -32,7 +32,6 @@
 
             <% if user_signed_in? %>
               <div class="flex items-center gap-2 mb-4">
-                <span><%= post.likes.count %> ❤️</span>
                 <%= render "likes/like_button", post: post %>
               </div>
             <% end %>
