@@ -10,7 +10,7 @@
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
-  <h1 class="text-6xl text-balance sm:text-7xl text-black font-sans font-bold">
+  <h1 class="text-6xl text-balance sm:text-7xl text-white dark:text-black font-sans font-bold">
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
