@@ -30,11 +30,11 @@
     <% if user_signed_in? %>
       <footer class="inline-flex sm:p-0 flex-row justify-center sm:justify-start gap-2 pt-4">
         <%= link_to "Edit", edit_article_path(@article),
-          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
+          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-lime-500" %>
 
         <%= link_to "Delete", article_path(@article),
           data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-gray-800 hover:text-white" %>
+          class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-lime-500" %>
       </footer>
     <% else %>
       <div class="pt-4">
