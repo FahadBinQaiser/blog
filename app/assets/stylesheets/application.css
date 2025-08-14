@@ -22,20 +22,20 @@ body {
   font-weight: 600;
   transition: background-color 0.2s ease;
 }
-.primary_button-unlike {
-  display: inline-block;
-  background-color: white;
-  color: black;
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 10px 30px;
-  border-radius: 10px;
-}
 .primary_button {
   display: inline-block;
   background-color: lime;
   font-size: 1.2rem;
   color: black;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+.primary_button-unlike {
+  display: inline-block;
+  background-color: white;
+  color: black;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 10px 30px;
   border-radius: 10px;
