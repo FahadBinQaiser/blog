@@ -15,7 +15,7 @@
         <%= button_to "Logout", destroy_user_session_path,
               method: :delete,
               form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-              class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-black dark:text-white rounded" %>
+              class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-lime-400 dark:text-black font-bold rounded" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "text-sm text-white dark:text-black hover:underline" %>
         <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-white dark:text-black hover:underline" %>
