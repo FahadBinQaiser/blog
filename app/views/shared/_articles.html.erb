@@ -11,7 +11,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <% @articles.each do |article| %>
+      <% @articles.limit(3).each do |article| %>
         <% unless article.archived? %>
           <article class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-lime-300 dark:hover:border-lime-400">
             <%= link_to article, class: "block h-full" do %>
