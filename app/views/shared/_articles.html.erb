@@ -1,0 +1,58 @@
+<section class="py-16 px-4 bg-gray-50 dark:bg-black">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Latest Articles
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Discover our featured articles and dive into topics that matter
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @articles.limit(3).each do |article| %>
+        <% unless article.archived? %>
+          <article class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-lime-300 dark:hover:border-lime-400">
+            <%= link_to article, class: "block h-full" do %>
+              
+              <div class="flex items-center gap-3 mb-4">
+                <div class="text-md text-gray-500 dark:text-gray-300">
+                  <%= article.created_at.strftime("%b %d, %Y.") %>
+                </div>
+              </div>
+
+              <h3 class="text-3xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-lime-600 dark:group-hover:text-lime-400 transition-colors leading-tight">
+                <%= truncate(article.title, length: 50) %>
+              </h3>
+
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">
+                <%= truncate(article.body, length: 80) %>
+              </p>
+
+              <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+                <span class="text-lime-600 dark:text-lime-400 text-lg font-medium group-hover:underline">
+                  Read Article
+                </span>
+                <svg class="w-4 h-4 text-lime-600 dark:text-lime-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+              
+            <% end %>
+          </article>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="text-center mt-12">
+      <%= link_to articles_path, class: "inline-flex items-center gap-2 bg-gradient-to-r from-lime-500 to-green-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-lime-500/25 transition-all duration-300 hover:-translate-y-0.5" do %>
+        View All Articles
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      <% end %>
+    </div>
+    
+  </div>
+</section>

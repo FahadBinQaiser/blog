@@ -1,7 +1,8 @@
-<div class="auth-page">
+<div class="dark:bg-black bg-white">
+  <div class="auth-page">
   <div class="auth-container">
 
-    <h2 class="auth-title">Sign Up</h2>
+    <h2 class="auth-title-lime">Sign Up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="space-y-4">
@@ -22,7 +23,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "auth-input" %>
         </div>
 
-        <%= f.submit "Sign Up", class: "auth-button" %>
+        <%= f.submit "Sign Up", class: "auth-button-lime" %>
 
       </div>
     <% end %>
@@ -32,4 +33,5 @@
     </div>
 
   </div>
+</div>
 </div>

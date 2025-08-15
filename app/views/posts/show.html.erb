@@ -1,4 +1,5 @@
-<h1 class="text-5xl font-bold text-black text-center py-10">
+<div class="bg-white text-black h-full pb-10 dark:bg-black dark:text-white">
+  <h1 class="text-5xl font-bold text-center py-10">
   <%= @post.title %>
 </h1>
 
@@ -12,6 +13,8 @@
     
 <div class="text-center flex justify-center my-6">
  <%= link_to "Back to Posts", posts_path, 
-          class: "flex justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300 font-medium" %>
+          class: "primary_button" %>
 </div>
 
+
+</div>

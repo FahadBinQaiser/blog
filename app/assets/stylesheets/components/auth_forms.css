@@ -28,11 +28,18 @@
   text-align: center;
   color: #ef4444;
 }
+.auth-title-lime {
+  font-size: 1.875rem;
+  font-weight: 800;
+  text-align: center;
+  color: lime;
+}
 
 .auth-label {
   display: block;
   margin-bottom: 0.25rem;
   font-weight: 500;
+  color: lime;
 }
 
 .auth-input {
@@ -48,6 +55,17 @@
   width: 100%;
   background-color: #dc2626;
   color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.auth-button-lime {
+  width: 100%;
+  background-color: lime;
+  color: black;
   font-weight: 600;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;

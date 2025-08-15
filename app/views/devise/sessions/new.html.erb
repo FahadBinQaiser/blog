@@ -1,6 +1,7 @@
-<div class="auth-page">
+<div class="dark:bg-black bg-white">
+  <div class="auth-page">
   <div class="auth-container">
-    <h2 class="auth-title">Log in</h2>
+    <h2 class="auth-title-lime text-lime-400">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="space-y-4">
@@ -14,7 +15,7 @@
           <%= f.password_field :password, autocomplete: "current-password", class: "auth-input" %>
         </div>
 
-        <%= f.submit "Log in", class: "auth-button" %>
+        <%= f.submit "Log in", class: "auth-button-lime" %>
       </div>
     <% end %>
 
@@ -22,4 +23,5 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
 </div>

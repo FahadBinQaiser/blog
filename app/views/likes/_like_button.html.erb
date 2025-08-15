@@ -1,9 +1,22 @@
 <div class="py-2">
   <% like = current_user.likes.find_by(post: post) %>
-<% if like.nil? %>
-  <%= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } }, class: "bg-blue-500 cursor-pointer text-white px-3 py-1 rounded" %>
-<% else %>
-  <%= button_to "Unlike", like_path(like), method: :delete, class: "bg-red-500 text-white px-3 py-1 rounded cursor-pointer" %>
-<% end %>
-
+  <div class="flex p-2 px-0 space-x-2 justify-center items-center">
+    <% if like.nil? %>
+      <%= button_to likes_path, method: :post, params: { like: { post_id: post.id } }, class: "group rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" do %>
+        <svg class="w-7 h-7 text-gray-600 dark:text-gray-400 group-hover:text-red-500 group-hover:scale-110 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+      <% end %>
+    <% else %>
+      <%= button_to like_path(like), method: :delete, class: "group rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" do %>
+        <svg class="w-7 h-7 text-red-500 group-hover:scale-110 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+      <% end %>
+    <% end %>
+    
+    <span class="text-lg text-gray-600 dark:text-gray-400 font-medium">
+      <%= post.likes.count %>
+    </span>
+  </div>
 </div>
