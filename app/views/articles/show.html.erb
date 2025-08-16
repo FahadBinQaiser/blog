@@ -10,7 +10,7 @@
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
     <header>
-  <h1 class="text-6xl text-balance sm:text-7xl text-lime-400 dark:text-black font-sans font-bold">
+  <h1 class="text-4xl text-balance sm:text-7xl text-lime-400 dark:text-black font-bold">
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
@@ -28,7 +28,7 @@
     </section>
 
     <% if user_signed_in? %>
-      <footer class="inline-flex sm:p-0 flex-row justify-center sm:justify-start gap-2 pt-4">
+      <footer class="flex flex-row sm:p-0 justify-center sm:justify-start gap-2 pt-4">
         <%= link_to "Edit", edit_article_path(@article),
           class: "button bg-lime-400 text-black dark:bg-black dark:text-white hover:bg-lime-500 dark:hover:bg-gray-900" %>
 
