@@ -14,13 +14,21 @@
     <%= truncate(@article.title, length: 50) %>
   </h1>
 </header>
-  <div class="information pt-6 flex flex-row items-center space-x-8">
-        <p class="text-lg text-white dark:text-black">
-          • By <%= @article.user.email.split("@").first.capitalize %></p>
-        <p class="text-lg text-white dark:text-black">
-          • <%= @article.created_at.strftime("%b %d, %Y") %>
-        </p>
-  </div>
+<div class="information pt-6 flex flex-row items-center space-x-3 sm:space-x-8">
+  <p class="text-lg text-white dark:text-black">
+    • By 
+    <% if @article.user.email.length >= 20 %>
+      <%= truncate(@article.user.email, length: 13) %>
+    <% else %>
+      <%= @article.user.email.split("@").first.capitalize %>
+    <% end %>
+  </p>
+
+  <p class="text-lg text-white dark:text-black">
+    • <%= @article.created_at.strftime("%b %d, %Y") %>
+  </p>
+</div>
+
     <section>
       <p class="text-lg whitespace-pre-line leading-relaxed">
         <%= @article.body %>
