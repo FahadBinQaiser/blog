@@ -31,6 +31,15 @@ body {
   padding: 10px 30px;
   border-radius: 10px;
 }
+@media (max-width: 640px) {
+  .primary_button_hidden {
+    display: none;
+  }
+  .button {
+    padding: 1rem 3rem;
+    width: 100%;
+  }
+}
 #menu-toggle:checked + div + div {
   max-height: 300px;
   padding-bottom: 1rem;

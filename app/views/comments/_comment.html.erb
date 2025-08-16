@@ -7,7 +7,7 @@
           <%= comment.user.email.split("@").first.capitalize %></p>
     </div>
     <div class="relative flex flex-row items-center space-x-2">
-        <p class="text-sm text-white dark:text-gray-800">
+        <p class="text-sm text-white hidden sm:block dark:text-gray-800">
           <%= comment.created_at.strftime("%b %d, %Y") %>
         </p>
       <button type="button" onclick="this.nextElementSibling.classList.toggle('hidden')" class="p-2 rounded-full cursor-pointer hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white focus:outline-none">

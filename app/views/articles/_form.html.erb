@@ -1,4 +1,5 @@
-<%= form_with model: article, class: "auth-container text-lime-400 max-w-5xl mx-auto text-white" do |form| %>
+<div class="mx-4 sm:mx-0">
+    <%= form_with model: article, class: "auth-container text-lime-400 max-w-5xl mx-auto text-white" do |form| %>
   <div>
     <%= form.label :title, class: "auth-label text-2xl" %>
     <%= form.text_field :title, class: "auth-input border border-white" %>
@@ -31,3 +32,4 @@
   </div>
 
 <% end %>
+</div>
