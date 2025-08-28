@@ -24,13 +24,27 @@ body {
 }
 .primary_button {
   display: inline-block;
-  background-color: lime;
-  font-size: 1.2rem;
-  color: black;
-  font-weight: bold;
-  padding: 10px 30px;
-  border-radius: 10px;
+  background-color: #059669;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.75rem;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
+
+.primary_button:hover {
+  background-color: #047857;
+  transform: translateY(-2px);
+}
+
+.primary_button:active {
+  background-color: #065f46;
+  transform: translateY(0);
+}
+
 @media (max-width: 640px) {
   .primary_button_hidden {
     display: none;
