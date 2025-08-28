@@ -3,23 +3,23 @@
     <input type="checkbox" id="menu-toggle" class="hidden">
     
     <div class="flex items-center justify-between">
-      <div class="text-xl font-bold dark:text-black">
+      <div class="text-xl dark:text-black">
         <%= link_to "Blog Space", root_path %>
       </div>
 
-      <div class="hidden md:flex justify-center items-center gap-4">
+      <div class="hidden md:flex justify-center fontText items-center gap-4">
         <%= link_to "Posts", posts_path %>
         <%= link_to "Articles", articles_path %>
         <%= link_to "New Article", new_article_path %>
         <%= link_to "New Post", new_post_path %>
       </div>
 
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex fontText items-center gap-4">
         <% if user_signed_in? %>
           <%= button_to "Logout", destroy_user_session_path,
                 method: :delete,
                 form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-                class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-lime-400 dark:text-black font-bold rounded" %>
+                class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-emerald-600 dark:text-white rounded" %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "text-sm text-white dark:text-black hover:underline" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-white dark:text-black hover:underline" %>

@@ -1,31 +1,42 @@
-<div class="bg-white text-black dark:bg-black">
+<div class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
   <div class="max-w-4xl text-center py-2 mx-auto">
     <% if user_signed_in? %>
-  <span class="text-lg flex justify-center gap-1 dark:text-white">Welcome,
-    <p class="text-black dark:text-lime-400"> <%= current_user.email %></p>
-  </span>
-  <% end %>
+      <span class="text-lg flex fontText font-medium justify-center gap-1">
+        Welcome,
+        <span class="text-emerald-600 font-semibold dark:text-emerald-400">
+        <%= current_user.email %>
+       </span>
+
+      </span>
+    <% end %>
   </div>
 </div>
-<div class="h-[90vh] dark:bg-black bg-white">
-  <%= render "shared/navbar" %>
- <%# dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %> 
 
-<div class="dark:text-white pt-0 sm:pt-20  dark:bg-black h-full">
-  <div class="max-w-5xl mx-auto px-4 py-6  flex justify-center items-center flex-col h-[80vh] sm:h-auto">
-    <div class="articles-header">
-       <p class="text-sm fontText bg-emerald-600 text-white inline-block px-4 rounded-xl mb-4 py-2">
-        Our blog has <%= Article.public_count %> articles and counting!
-      </p>
-      <h1 class="text-4xl sm:text-4xl md:text-6xl text-balance font-bold">Analyze Articles and Blog Posts with <span class="text-emerald-600">BlogSpace</span></h1>
-      <p class="fontText">
-        Post articles, share stories, and join a growing community of writers.
-      </p>
-    <div class="flex justify-center pt-5 items-center gap-1 w-full">
-      <%= link_to "New Article", new_article_path, class: "primary_button" %>
-      <%= link_to "New Post", new_post_path, class: "primary_button" %>
-      <%= link_to "Posts", posts_path, class: "primary_button" %>
-    </div>
+<div class="h-[90vh] bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <%= render "shared/navbar" %>
+
+  <div class="pt-0 sm:pt-16 h-full">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex justify-center items-center flex-col h-[80vh] sm:h-auto">
+      <div class="articles-header">
+        <p class="text-sm fontText bg-emerald-600 text-white inline-block px-4 py-2 rounded-xl mb-4">
+          Our blog has <%= Article.public_count %> articles and counting!
+        </p>
+
+        <h1 class="text-4xl sm:text-4xl md:text-6xl text-balance font-bold">
+          Analyze Articles and Blog Posts with
+          <span class="text-emerald-600 dark:text-emerald-400">BlogSpace</span>
+        </h1>
+
+        <p class="fontText text-slate-600 dark:text-slate-400 mt-2">
+          Post articles, share stories, and join a growing community of writers.
+        </p>
+
+        <div class="flex justify-center pt-5 items-center gap-3 w-full">
+          <%= link_to "New Article", new_article_path, class: "primary_button" %>
+          <%= link_to "New Post", new_post_path, class: "primary_button" %>
+          <%= link_to "Posts", posts_path, class: "primary_button" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
