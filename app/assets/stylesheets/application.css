@@ -17,13 +17,14 @@
   font-style: normal;
 }
 
-.body_font {
-  font-family: "Montaga", sans-serif;
-}
-
 body {
   font-family: "Neue Haas Grotesk";
 }
+
+.fontText {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
 .button {
   padding: 1rem 4rem;
   text-align: center;
@@ -34,11 +35,11 @@ body {
   transition: background-color 0.2s ease;
 }
 .primary_button {
+  font-family: "IBM Plex Sans", sans-serif;
   display: inline-block;
   background-color: #059669;
   color: #ffffff;
   font-size: 1rem;
-  font-weight: 500;
   padding: 0.9rem 1.8rem;
   border-radius: 0.75rem;
   transition:
