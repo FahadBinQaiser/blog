@@ -1,25 +1,13 @@
-<div class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-  <div class="max-w-4xl text-center py-2 mx-auto">
-    <% if user_signed_in? %>
-      <span class="text-lg flex fontText font-medium justify-center gap-1">
-        Welcome,
-        <span class="text-emerald-600 font-semibold dark:text-emerald-400">
-        <%= current_user.email %>
-       </span>
-
-      </span>
-    <% end %>
-  </div>
-</div>
-
-<div class="h-[90vh] bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+<div class="h-[100vh] bg-gray-200 pt-6 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
   <%= render "shared/navbar" %>
 
   <div class="pt-0 sm:pt-16 h-full">
     <div class="max-w-5xl mx-auto px-4 py-6 flex justify-center items-center flex-col h-[80vh] sm:h-auto">
       <div class="articles-header">
-        <p class="text-sm fontText bg-emerald-600 text-white inline-block px-4 py-2 rounded-xl mb-4">
-          Our blog has <%= Article.public_count %> articles and counting!
+        <p class="text-lg gap-3 fontText flex justify-center items-center text-slate-600 dark:text-slate-400 mb-4">
+          <span class="pb-0.5 ">
+            ●
+          </span> Our blog has <%= Article.public_count %> articles and counting!
         </p>
 
         <h1 class="text-4xl sm:text-4xl md:text-6xl text-balance font-bold">
@@ -34,11 +22,11 @@
         <div class="flex justify-center pt-5 items-center gap-3 w-full">
           <%= link_to "New Article", new_article_path, class: "primary_button" %>
           <%= link_to "New Post", new_post_path, class: "primary_button" %>
-          <%= link_to "Posts", posts_path, class: "primary_button" %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <%= render "shared/articles", articles: @articles %>
