@@ -13,7 +13,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
       <% @articles.limit(4).each do |article| %>
       <% unless article.archived? %>
-      <article class="relative bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 shadow-xl border-1 border-emerald-200 dark:border-emerald-700 hover:scale-105 hover:-translate-y-10 transition-transform duration-300 flex flex-col h-full">
+      <article class="relative bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 shadow-xl hover:scale-105 hover:-translate-y-10 transition-transform duration-300 flex flex-col h-full">
       <%= link_to article, class: "block h-full flex flex-col" do %>
         
         <div>
