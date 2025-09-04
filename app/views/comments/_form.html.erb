@@ -1,19 +1,19 @@
-<%= form_with model: [ article, article.comments.build ], class: "bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 p-4" do |form| %>
+<%= form_with model: [ article, article.comments.build ], class: "bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 p-4 dark:text-[#10b981] rounded-xl" do |form| %>
 
   <div>
     <%= form.label :body, "Comment", class: "block mb-2 text-2xl font-semibold" %>
-    <%= form.text_area :body, rows: 4, class: "border border-[#10b981] text-white dark:text-black p-2 rounded-md h-40 w-full" %>
+    <%= form.text_area :body, rows: 4, class: "border border-[#10b981] text-white p-2 rounded-md h-40 w-full" %>
   </div>
   <div>
     <%= form.label :status, class: "block mb-2 text-2xl font-semibold" %>
     <%= form.select :status, Visible::VALID_STATUSES, 
     { selected: "public" }, 
-    { class: "border border-[#10b981] dark:border-gray-600 rounded-lg px-4 py-2 text-black dark:text-white bg-white dark:bg-black" } %>
+    { class: "border border-[#10b981] bg-transparent rounded-lg px-4 py-2 text-black dark:text-white" } %>
   </div>
 
 
   <div class="flex justify-end w-full">
-    <%= form.submit "Post Comment", class: "button bg-[#10b981] text-black dark:bg-black dark:text-white hover:bg-[#6ee7b7] dark:hover:bg-black cursor-pointer" %>
+    <%= form.submit "Post Comment", class: "button bg-[#059669] text-white hover:bg-[#047857] cursor-pointer" %>
   </div>
 
 <% end %>
