@@ -7,7 +7,7 @@
         <%= link_to "Blog Space", root_path %>
       </div>
 
-      <div class="hidden md:flex space-x-6 justify-center items-center gap-4">
+      <div class="hidden md:flex space-x-6 text-black dark:text-white justify-center items-center gap-4">
         <%= link_to "Posts", posts_path %>
         <%= link_to "Articles", articles_path %>
         <%= link_to "New Article", new_article_path %>
@@ -19,7 +19,7 @@
           <%= button_to "Logout", destroy_user_session_path,
                 method: :delete,
                 form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-                class: "text-sm cursor-pointer px-3 py-1 bg-white text-black dark:bg-lime-400 dark:text-black font-bold rounded" %>
+                class: "text-sm cursor-pointer px-3 py-1 bg-emerald-600 text-white rounded" %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "text-sm text-black dark:text-white hover:underline" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "text-sm text-black dark:text-white hover:underline" %>
@@ -74,10 +74,10 @@
 
         <div class="flex flex-col space-y-3 pt-3 border-t border-gray-700 dark:border-gray-300 mt-3">
           <% if user_signed_in? %>
-            <%= button_to "Logout", destroy_user_session_path,
-                  method: :delete,
-                  form: { "data-turbo-confirm": "Are you sure you want to logout?" },
-                  class: "text-sm cursor-pointer px-3 py-2 bg-white text-black dark:bg-lime-400 dark:text-black font-bold rounded" %>
+           <%= button_to "Logout", destroy_user_session_path,
+                method: :delete,
+                form: { "data-turbo-confirm": "Are you sure you want to logout?" },
+                class: "text-sm cursor-pointer px-3 py-1 bg-emerald-600 text-white rounded" %>
           <% else %>
             <%= link_to "Login", new_user_session_path, class: "text-sm hover:underline" %>
             <%= link_to "Sign Up", new_user_registration_path, class: "text-sm hover:underline" %>
