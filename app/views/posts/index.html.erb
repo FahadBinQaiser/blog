@@ -1,12 +1,10 @@
 <% dark_height_class = @posts.count >= 3 ? "dark:h-full" : "dark:h-screen" %>
 
 <div class="dark:bg-black dark:text-white bg-white text-black <%= dark_height_class %>">
-  <div class="max-w-5xl mx-auto px-4 py-8">
-
-    <div class="mb-6">
+    <div class="pt-6 mb-6">
       <%= render "shared/navbar" %>
     </div>
-
+  <div class="max-w-5xl mx-auto px-4 py-8">
     <h1 class="text-4xl sm:text-5xl font-bold text-center mb-10">Posts</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -37,7 +35,7 @@
             <% end %>
 
             <%= link_to "View Post", post_path(post), 
-                class: "mt-auto inline-block text-center bg-black text-white dark:bg-lime-400  dark:text-black px-4 py-2 rounded-lg font-bold hover:bg-gray-800 dark:hover:bg-lime-500 transition-colors duration-300" %>
+                class: "bg-[#059669] hover:bg-[#047857] transition duration-300 ease-out px-6 py-2 text-white text-center justify-center rounded-xl gap-2 text-center" %>
           </div>
 
         </div>

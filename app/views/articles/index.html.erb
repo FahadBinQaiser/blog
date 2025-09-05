@@ -1,16 +1,4 @@
-<div class="bg-white text-black dark:bg-black">
-  <div class="max-w-4xl text-center py-2 mx-auto">
-    <% if user_signed_in? %>
-      <span class="text-lg hidden sm:flex justify-center gap-1 dark:text-white">Welcome,
-        <p class="text-black dark:text-lime-400"> <%= current_user.email %></p>
-      </span>
-    <% else %>
-      <span class="text-lg hidden sm:block dark:text-white">Welcome, Guest</span>
-    <% end %>
-  </div>
-</div>
-
-<div class="min-h-screen dark:bg-black bg-white">
+<div class="min-h-screen pt-6 dark:bg-black bg-white">
   <%= render "shared/navbar" %>
   
   <div class="dark:text-white pt-0 sm:pt-20 dark:bg-black">
@@ -22,39 +10,48 @@
         </h1>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <% @articles.each do |article| %>
-          <% unless article.archived? %>
-            <article class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-lime-300 dark:hover:border-lime-400">
-              <%= link_to article, class: "block h-full" do %>
-                
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="text-sm text-gray-500 dark:text-gray-300">
-                    <%= article.created_at.strftime("%b %d, %Y") %>
-                  </div>
-                </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <% @articles.each do |article| %>
+      <% unless article.archived? %>
+      <article class="relative bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 shadow-xl hover:scale-105 hover:-translate-y-10 transition-transform duration-500 flex flex-col h-full">
+      <%= link_to article, class: "block h-full flex flex-col" do %>
+        
+        <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">
+          <%= article.created_at.strftime("%b %d, %Y") %>
+          </span>
+        </div>
 
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-lime-600 dark:group-hover:text-lime-400 transition-colors leading-tight">
-                  <%= article.title %>
-                </h3>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+          <%= truncate(article.title, length: 45) %>
+        </h3>
 
-                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                  <%= truncate(article.body, length: 80) %>
-                </p>
+        <p class="text-gray-700 dark:text-gray-300 text-base mb-6 line-clamp-3">
+          <%= truncate(article.body, length: 100) %>
+        </p>
+        </div>
 
-                <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-                  <span class="text-lime-600 dark:text-lime-400 text-lg font-medium">
-                    Read Article
-                  </span>
-                  <svg class="w-4 h-4 text-lime-600 dark:text-lime-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </div>
-                
-              <% end %>
-            </article>
-          <% end %>
-        <% end %>
+        <div class="mt-auto flex items-center justify-between pt-4 border-t border-emerald-200 dark:border-emerald-700">
+        <span class="text-emerald-700 dark:text-emerald-400 text-base font-semibold group-hover:underline">
+          Read More
+        </span>
+        <svg class="w-5 h-5 text-emerald-700 dark:text-emerald-400 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        </div>
+        
+        <div class="absolute top-4 right-4">
+        <span class="inline-block bg-white dark:bg-gray-900 border border-emerald-200 dark:border-emerald-700 rounded-full px-2 py-1 text-xs text-emerald-600 dark:text-emerald-400 font-medium shadow">
+          <%= article.category if article.respond_to?(:category) %>
+        </span>
+        </div>
+        
+      <% end %>
+      </article>
+      <% end %>
+      <% end %>
+    </div>
       </div>
     </div>
   </div>

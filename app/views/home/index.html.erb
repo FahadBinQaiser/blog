@@ -1,34 +1,32 @@
-<div class="bg-white text-black dark:bg-black">
-  <div class="max-w-4xl text-center py-2 mx-auto">
-    <% if user_signed_in? %>
-  <span class="text-lg flex justify-center gap-1 dark:text-white">Welcome,
-    <p class="text-black dark:text-lime-400"> <%= current_user.email %></p>
-  </span>
-  <% else %>
-  <span class="text-lg block dark:text-white">Welcome, Guest</span>
-  <% end %>
+<div class="h-[100vh] bg-gray-200 pt-6 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <%= render "shared/navbar" %>
+
+  <div class="pt-0 sm:pt-16 h-full">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex justify-center items-center flex-col h-[80vh] sm:h-auto">
+      <div class="articles-header">
+        <p class="text-lg gap-3 fontText flex justify-center items-center text-slate-600 dark:text-slate-400 mb-4">
+          <span class="pb-0.5 ">
+            ●
+          </span> Our blog has <%= Article.public_count %> articles and counting!
+        </p>
+
+        <h1 class="text-4xl sm:text-4xl md:text-6xl text-balance font-bold">
+          Analyze articles and <br> Blog posts with
+          <span class="text-emerald-600 dark:text-emerald-400">BlogSpace</span>
+        </h1>
+
+        <p class="fontText text-slate-600 dark:text-slate-400 mt-6">
+          Post articles, share stories, and join a growing community of writers.
+        </p>
+
+        <div class="flex justify-center pt-8 items-center gap-3 w-full">
+        <%= link_to "Articles", articles_path, class: "primary_button"%>
+       <%= link_to "Posts", posts_path, class: "animatedButton border-2 border-[#059669]" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="h-[90vh] dark:bg-black bg-white">
-  <%= render "shared/navbar" %>
- <%# dark_height_class = @articles.count >= 3 ? "dark:h-full" : "dark:h-screen" %> 
-
-<div class="dark:text-white pt-0 sm:pt-20  dark:bg-black h-full">
-  <div class="max-w-5xl mx-auto px-4 py-6  flex justify-center items-center flex-col h-[80vh] sm:h-auto">
-    <div class="articles-header">
-      <h1 class="text-4xl sm:text-4xl md:text-6xl text-balance font-bold">Analyze Articles and Blog Posts given by <span class="text-lime-400">BlogSpace</span></h1>
-      <p class="articles-subtitle pt-3">
-        Our blog has <%= Article.public_count %> articles and counting!
-      </p>
-    </div>
-    <div class="flex justify-center items-center w-full">
-      <div>
-      <%= link_to "New Article", new_article_path, class: "primary_button primary_button_hidden" %>
-      <%= link_to "New Post", new_post_path, class: "primary_button" %>
-      <%= link_to "Posts", posts_path, class: "primary_button" %>
-    </div>
-    </div>
-  </div>
 </div>
 
 <%= render "shared/articles", articles: @articles %>
