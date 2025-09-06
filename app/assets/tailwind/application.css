@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @import "../stylesheets/components/articles.css";
 @import "../stylesheets/components/auth_forms.css";
