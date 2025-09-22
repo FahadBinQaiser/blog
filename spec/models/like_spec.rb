@@ -17,9 +17,9 @@ RSpec.describe Like, type: :model do
       expect(like).not_to be_valid
     end
     it "does not allow the same user to like the same post twice" do
-    Like.create!(user: user, post: post)
-    duplicate_like = Like.new(user: user, post: post)
-    expect(duplicate_like).not_to be_valid
+      Like.create!(user: user, post: post)
+      duplicate_like = Like.new(user: user, post: post)
+      expect(duplicate_like).not_to be_valid
     end
   end
 
