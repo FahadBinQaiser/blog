@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Blog
   class Application < Rails::Application
+    config.assets.paths << Rails.root.join("app/assets/builds")
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
