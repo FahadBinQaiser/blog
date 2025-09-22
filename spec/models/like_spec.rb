@@ -9,11 +9,11 @@ RSpec.describe Like, type: :model do
       expect(like).to be_valid
     end
     it 'is not valid without a user' do
-      like = Like.new(user: user)
+      like = Like.new(post: post)
       expect(like).not_to be_valid
     end
     it 'is not valid without a post' do
-      like = Like.new(post: post)
+      like = Like.new(user: user)
       expect(like).not_to be_valid
     end
     it "does not allow the same user to like the same post twice" do
