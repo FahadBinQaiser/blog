@@ -18,31 +18,31 @@
         
         <div>
         <div class="flex items-center gap-2 mb-3">
-          <span class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">
+          <span class="<%= article_date_color %>">
           <%= article.created_at.strftime("%b %d, %Y") %>
           </span>
         </div>
 
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
+        <h3 class="<%= article_heading_color %>">
           <%= truncate(article.title, length: 45) %>
         </h3>
 
-        <p class="text-gray-700 dark:text-gray-300 text-base mb-6 line-clamp-3">
+        <p class="<%= article_subheading_color %>">
           <%= truncate(article.body, length: 100) %>
         </p>
         </div>
 
-        <div class="mt-auto flex items-center justify-between pt-4 border-t border-emerald-200 dark:border-emerald-700">
+      <div class="mt-auto flex items-center justify-between pt-4 border-t border-emerald-200 dark:border-emerald-700">
         <span class="text-emerald-700 dark:text-emerald-400 text-base font-semibold group-hover:underline">
           Read More
         </span>
+
       <svg class="w-5 h-5 text-emerald-700 dark:text-emerald-400 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </div>
-        
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+      </div>    
       <% end %>
-      </article>
+    </article>
     <% end %>
   <% end %>
 </div>
