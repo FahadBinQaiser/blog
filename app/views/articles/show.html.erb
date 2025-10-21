@@ -1,28 +1,31 @@
 <div class="bg-white dark:bg-slate-950 text-gray-900 min-h-screen">
-    <div class="mb-8 pt-6">
-      <%= render "shared/navbar" %>
-    </div>
-  <div class="max-w-5xl mx-auto px-4 py-8">
+  <div class="mb-8 pt-6">
+    <%= render "shared/navbar" %>
+  </div>
 
+  <div class="max-w-5xl mx-auto px-4 py-8">
 
     <article class="bg-gradient-to-br from-emerald-50 to-green-100 dark:from-gray-900 dark:to-gray-800 dark:text-white shadow-md rounded-xl p-8">
       <h2 class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 px-8 mb-3 py-2 rounded-full text-lg font-semibold">
         <%= @article.user.email.split("@").first.capitalize %>
       </h2>
+
       <header>
         <h1 class="text-3xl sm:text-5xl font-bold text-gray-900 dark:text-white">
           <%= truncate(@article.title, length: 50) %>
         </h1>
       </header>
+
       <div class="information pt-6 flex flex-row items-center space-x-3 sm:space-x-8">
         <p class="text-lg text-gray-700 dark:text-white">
-          • By 
+          • By
           <% if @article.user.email.length >= 20 %>
             <%= truncate(@article.user.email, length: 13) %>
           <% else %>
             <%= @article.user.email.split("@").first.capitalize %>
           <% end %>
         </p>
+
         <p class="text-lg text-gray-700 dark:text-white">
           • <%= @article.created_at.strftime("%b %d, %Y") %>
         </p>
@@ -36,26 +39,25 @@
 
       <% if user_signed_in? %>
         <footer class="flex flex-row justify-center sm:justify-start gap-2 pt-4">
-          <%= link_to "Edit", edit_article_path(@article),
-            class: "primary_button" %>
+          <%= link_to "Edit", edit_article_path(@article), class: "primary_button" %>
           <%= link_to "Delete", article_path(@article),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "primary_button" %>
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "primary_button" %>
         </footer>
       <% else %>
         <div class="pt-4">
-          <%= link_to "Sign in to edit or delete",
-            new_user_session_path,
-            class: "primary_button" %>
+          <%= link_to "Sign in to edit or delete", new_user_session_path, class: "primary_button" %>
         </div>
       <% end %>
     </article>
 
     <section class="mt-12 space-y-4">
       <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Comments</h2>
+
       <div class="space-y-6">
         <%= render @article.comments %>
       </div>
+
       <% if user_signed_in? %>
         <div class="mt-8">
           <%= render "comments/form", article: @article %>
@@ -63,11 +65,11 @@
       <% else %>
         <p class="text-gray-500">
           You must
-          <%= link_to "log in", new_user_session_path,
-            class: "text-emerald-600 font-bold underline" %>
+          <%= link_to "log in", new_user_session_path, class: "text-emerald-600 font-bold underline" %>
           to leave a comment.
         </p>
       <% end %>
     </section>
+
   </div>
 </div>
