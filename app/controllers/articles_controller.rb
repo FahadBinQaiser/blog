@@ -55,6 +55,7 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :body, :status)
   end
+
   def user_not_authorized
     flash[:alert] = "You're not authorized to perform this action. You don't own this article."
     redirect_to(request.referrer || root_path)
